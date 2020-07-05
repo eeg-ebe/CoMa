@@ -6,9 +6,10 @@
         <title>CoMa</title>
 
         <link rel="stylesheet" href="../HaplowebMaker/external/jquery-ui.min.css"/>
-        <script src="../HaplowebMaker/external/jquery.js"></script>
-        <script src="../HaplowebMaker/external/jquery-ui.min.js"></script>
-        <script src="../HaplowebMaker/scripts/util.js"></script>
+        <script src="external/jquery.js"></script>
+        <script src="external/jquery-ui.min.js"></script>
+        <script src="scripts/util.js"></script>
+        <link rel="stylesheet" href="external/jquery-ui.min.css" />
         <style>
 
 * {
@@ -45,7 +46,14 @@ body {
 .right {
     float: right;
 }
-
+#mainToolsToolbox {
+    display: none;
+    position: fixed;
+    z-index: 52;
+    width: 250px;
+    top: 62px;
+    left: 5px;
+}
         </style>
         <script>
 
@@ -103,7 +111,7 @@ download("image/svg+xml", "CoMa.svg", data);
 
         <div id="banner">
             <div style="padding: 10; margin-left: 20px;">
-                <a href="#" onclick="javascript: alert('No. There are no functions here till now ;).');">
+                <a href="#" onclick="javascript: $('#mainToolsToolbox').toggle();">
                     <img id="logoImg" src="favicon.svg" style="padding-top: 10px" />
                     <span style="vertical-align: middle; height: 40; font: italic 32px Verdana; text-decoration: none; color: lightgray; padding-bottom: 27px">&nbsp;CoMa</span>
                 </a>
@@ -115,6 +123,34 @@ download("image/svg+xml", "CoMa.svg", data);
         <div style="margin: 70px"></div>
 
         <br><br><br>
+        <ul id="mainToolsToolbox" class="ui-border-all">
+            <li>
+                <div>
+                    <span class="ui-icon ui-icon-note"></span>
+                    <span>Documentation</span>
+                </div>
+                <ul>
+                    <li>
+                        <div class="shortcut" shortcut="contact" onclick="javascript: window.location='mailto: Yann Spöri <ga29qal@mytum.de>,Jean-François Flot <jflot@ulb.ac.be>?subject=[HaplowebMaker/CoMa]'">
+                            <span class="ui-icon ui-icon-contact"></span>
+                            <span>Contact</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="faqDiv" onclick="javascript: document.getElementById('faqLink').click();">
+                            <a id="faqLink" target="_blank" href="faq.html" style="text-decoration: none;">
+                            </a>
+                            <span class="ui-icon ui-icon-help"></span>FAQ</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+            $( '#mainToolsToolbox' ).menu();
+            $('#mainToolsToolbox').toggle(); // start with toolbox opened
+        </script>
+
         <div style="overflow: hidden;">
             <div id="centerEverythingWrapper" style="width: 40em; margin: 0 auto">
                 <h1>CoMa</h1>
