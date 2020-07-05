@@ -14,5 +14,9 @@ In order to activate CORS requests in Firefox, enter about:config as URL, accept
 
 Open http(s)://&lt;name of your webbrowser&gt;/&lt;directory&gt;/index.html in any modern browser that fully supports HTML 5.
 
+# Compilation
+
+You also need to clone https://github.com/eeg-ebe/HaplowebMaker in order to cross-compile the haxe code into javascript code.
+
 # Reference
 Debortoli, Li, Eyres, Fontaneto, Hespeels, Tang, Flot, Van Doninck (2016) Genetic exchange among bdelloid rotifers is more likely due to horizontal gene transfer than to meiotic sex. Current Biology 26:723-732
