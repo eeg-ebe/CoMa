@@ -1,4 +1,4 @@
-self.importScripts("../HaplowebMaker/scripts/coma.js");
+self.importScripts("scripts/coma.js");
 
 Printer = function () {
     this.indent = "  ";
