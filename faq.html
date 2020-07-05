@@ -6,7 +6,10 @@
 CoMa (short for Conspecificity Matrices) is a web tool that takes as input a partition matrix (comprising one column per partition and one line per individual) and returns a conspecificity matrix (i.e., a n x n matrix, where n stands for the number of individuals in your dataset).
   
 ### Q2: How should the input partition matrix be formatted?
+The partitions matrix should be a tab-delimited file comprising one column per partition and one line per individual. Each column contains 1 for each individual belonging to species 1 for this partition, 2 for each individual belonging to species 2 for this partition, etc. Optionally, users can give a weight to each partition by adding a number directly below each column.
   
 ### Q3: What are the different options available in CoMa?
+At present there are only two options, which differ in the way the conspecificity scores are computed. Option zero (by default) computes the conspecificity score of a given pair of individuals as the number of partitions according to which they belong to the same species minus the number of partitions according to which they belong to two different species. Option one, by contrast, computes the conspecificity score of a pair of individuals as the number of partitions that consider them as conspecific. Option 1 was the original formula used in Debortoli et al. (2016), whereas option zero (the current default) was implemented later on as it provides a better way to deal with missing data.
   
 ### Q4: What sort of outputs does CoMa generate?
+CoMa generates two outputs: a SVG representation of the ordered conspecificity matrix, as well as a tab-delimited version of the matrix that users can download before clustering them the way they want, for instance using the R package heatmap3 (Zhao, Guo, Sheng & Shyr 2014).
