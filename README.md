@@ -22,4 +22,4 @@ You also need to clone https://github.com/eeg-ebe/HaplowebMaker in order to cros
 Debortoli, Li, Eyres, Fontaneto, Hespeels, Tang, Flot, Van Doninck (2016) Genetic exchange among bdelloid rotifers is more likely due to horizontal gene transfer than to meiotic sex. Current Biology 26:723-732 (first article where the concept of conspecificity matrix was proposed).
 
 # For more information
-Please refer to the [CoMa FAQ page](faq.html)
+Please refer to the [CoMa FAQ page](https://eeg-ebe.github.io/CoMa/faq.html)
