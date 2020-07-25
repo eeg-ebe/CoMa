@@ -105,6 +105,23 @@ var data = todownloadSvg;
 download("image/svg+xml", "CoMa.svg", data);
 }
 
+function showCite() {
+    $("#calculationOverlay").show();
+    $.getJSON("cite.json", function(data) {
+        var dialog = $("#genericInfoDialog");
+        dialog.dialog('option', 'title', "Cite");
+
+        var html = "";
+        for(var id=0; id < data.length; id++) {
+            var paper = data[id];
+            html += "<div style='margin-bottom: 7px'><span class='ui-icon ui-icon-triangle-1-e'></span>" + paper["ref"] + " [<a href='" + paper["link"] + "'>Link</a>]</div>";
+        }
+        $("#genericInfoDialogContent").html(html);
+        dialog.dialog("open");
+        $("#calculationOverlay").hide();
+    });
+}
+
         </script>
     </head>
     <body>
@@ -130,6 +147,12 @@ download("image/svg+xml", "CoMa.svg", data);
                     <span>Documentation</span>
                 </div>
                 <ul>
+                    <li>
+                        <div onclick="javascript: showCite();">
+                            <span class="ui-icon ui-icon-star"></span>
+                            <span>Cite</span>
+                        </div>
+                    </li>
                     <li>
                         <div class="shortcut" shortcut="contact" onclick="javascript: window.location='mailto: Yann Spöri <ga29qal@mytum.de>,Jean-François Flot <jflot@ulb.ac.be>?subject=[HaplowebMaker/CoMa]'">
                             <span class="ui-icon ui-icon-contact"></span>
@@ -171,5 +194,32 @@ download("image/svg+xml", "CoMa.svg", data);
 <button onclick="javascript: downloadSvg()" class="ui-button ui-widget ui-corner-all">Download svg</button>
 </div>
         <div id="resultDiv"></div>
+
+        <div id="genericInfoDialog">
+            <p>
+                <span class="ui-icon ui-icon-info" style="float:left;margin:0 7px 0 0;"></span>
+                <div id="genericInfoDialogContent" style="margin:0 0 0 23px"></div>
+            </p>
+        </div>
+        <script>
+            $( "#genericInfoDialog" ).dialog({
+                modal: true,
+                autoOpen: false,
+                height: 400,
+                width: 750,
+                buttons: [{
+                    "text" : "Ok",
+                    "class" : "dialogOkButton",
+                    "click" : function() {
+                        $( this ).dialog( "close" );
+                    }
+                }],
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+        </script>
+
     </body>
 </html>
